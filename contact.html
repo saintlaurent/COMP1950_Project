@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>contact</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+<header>
+<div id="bcitname"><a href="#">BRITISH COLUMBIA INSTITUTE OF TECHNOLOGY</a></li></div>
+<ul>
+  <li><a class="active" href="#home">STUDENT LOGIN</a></li>
+  <li><a href="contact.html">CONTACT US</a></li><li><a href="location.html">GET LOCATION</a></li>
+
+</ul>
+</header>
+<div class="main">
+  <div class="header">
+    <div class="block_header">
+      <div class="logo"><a href="index.html"><img src="images/bcit.png" width="80" height="80" border="0" alt="logo" /></a></div>
+     <div class="menu">
+        <ul>
+          <li><a href="index.html" class="active">HOME</a></li>
+          <li><a href="work.html">PROGRAMS & COURSES</a></li>
+          <li><a href="about.html">ADMISSION</a></li>
+          <li><a href="about.html">FACILITIES</a></li>
+        </ul>
+      </div>
+      <div class="clr"> </div>
+      <div class="clr"> </div>
+    </div>
+  </div>
+  <div class="slider2">
+    <div class="slider2_resize">
+      <h2>Contact us</h2>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+
+  <div class="body">
+    <div class="body_resize">
+      <div class="right">
+        <h2>Looking for Someone?</h2>
+        <p class="grey">BCIT super star student team will response within 24 hrs.</p>
+        <form action="#" method="post" id="contactform">
+          <ol>
+            <li>
+              <label for="name">First Name <span class="red">*</span></label>
+              <input id="name" name="name" class="text" />
+            </li>
+            <li>
+              <label for="email">Your email <span class="red">*</span></label>
+              <input id="email" name="email" class="text" />
+            </li>
+            <li>
+              <label for="company">Company Name</label>
+              <input id="company" name="company" class="text" />
+            </li>
+            <li>
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" class="text" />
+            </li>
+            <li>
+              <label for="message">Message <span class="red">*</span></label>
+              <textarea id="message" name="message" rows="6" cols="50"></textarea>
+            </li>
+            <li class="buttons">
+              <input type="image" name="imageField" id="imageField" src="images/send.gif" />
+            </li>
+          </ol>
+        </form>
+      </div>
+      <div class="left">
+        <div class="twitter">
+          <div class="twitter_footer">
+            <div class="twitter_top">
+              <p>“ Due to the bad weather, there is no school from March 3- March 30.”” </p>
+              <p><strong>Follow us on Twitter</strong><br />
+                <a href="twitter.com/bcit">twitter.com/bcit</a></p>
+            </div>
+          </div>
+        </div>
+        <h3>Stududent Support</h3>
+        <p>For questions regarding borrowing materials, your account, course reserves, writing centre appointments and room bookings, contact the Service Desk.<br />
+          604-222-4444<br />
+          <em><strong>support@bcit.ca</strong></em><br />
+          Monday-Friday 8am-8pm</p>
+        <h3>Book Store</h3>
+        <p>For questions regarding borrowing materials, your account, course reserves, writing centre appointments and room bookings, contact the Service Desk.<br />
+          604-222-8888<br />
+          <em><strong>books@bcit.ca</strong></em><br />
+          Monday-Friday 8am-5pm</p>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer_resize">
+    <p class="leftt">Copyright © COMP1920 MyURLTeam. All Rights Reserved</p>
+    <p class="rightt">Design by Team:Haini, Mayomi, Christine</a></p>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+</div>
+</body>
+</html>
